@@ -173,7 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pillerPrefab: {fileID: 5229705060415471710, guid: 08cf73ed493e0854d8ee9abe0a620730, type: 3}
+  pillerPrefabCollection: []
   timeBetweenEachPiller: 2
+  totalPillerCollection: 5
 --- !u!1 &489777117
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +819,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 6
 --- !u!114 &1960691463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +835,7 @@ MonoBehaviour:
   player: {fileID: 1960691460}
   xDistance: 3.6
   speed: 1.5
+  timeDelayForJump: 0.6
 --- !u!1001 &5229705060395871565
 PrefabInstance:
   m_ObjectHideFlags: 0

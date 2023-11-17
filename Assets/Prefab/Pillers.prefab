@@ -333,3 +333,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pillerMovementSpeed: 2
+  dieTime: 6

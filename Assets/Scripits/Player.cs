@@ -7,12 +7,17 @@ public class Player : MonoBehaviour
     public Transform player;
     public float xDistance;
     public float speed;
+
     Vector3 dirToJump;
+    private float previousTime;
+    public float timeDelayForJump;
 
     // Start is called before the first frame update
     void Start()
     {
+      
         dirToJump = Vector3.right;
+        previousTime = 0;
     }
 
     // Update is called once per frame
@@ -20,10 +25,20 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 targetPosition = player.position + dirToJump*xDistance;
-            StartCoroutine(MovePlayerToPosition(targetPosition, speed));
+            float spacePressedTime = Time.time;
+            float timeDelayBetweenJump = spacePressedTime - previousTime;
+           
+            if (timeDelayBetweenJump >timeDelayForJump)
+            {
+                Vector3 targetPosition = player.position + dirToJump * xDistance;
+                StartCoroutine(MovePlayerToPosition(targetPosition, speed));
+                dirToJump = -dirToJump;
+                previousTime = spacePressedTime;
 
-            dirToJump = -dirToJump;
+            }
+        
+           
+
         }
     }
 
