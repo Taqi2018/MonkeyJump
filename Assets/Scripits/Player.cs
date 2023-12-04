@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
                 Vector3 targetPosition = player.position + dirToJump * xDistance;
                 StartCoroutine(MovePlayerToPosition(targetPosition, speed));
                 dirToJump = -dirToJump;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
                 previousTime = spacePressedTime;
 
             }
