@@ -7,8 +7,11 @@ public class GameManager : MonoBehaviour
 {
      public static GameManager Instance;
 
-     public Text scoreText; 
+     public Text scoreText;
      private int score = 0;
+
+     public Slider healthSlider;
+     public Text healthText;
 
      void Awake()
      {
@@ -20,6 +23,11 @@ public class GameManager : MonoBehaviour
           {
                Destroy(gameObject);
           }
+     }
+
+     private void Start()
+     {
+          healthSlider.value = 100f;
      }
 
      public void AddScore(int value)
@@ -34,5 +42,11 @@ public class GameManager : MonoBehaviour
           {
                scoreText.text = "Score: " + score;
           }
+     }
+
+     public void DealDamage(float damageValue)
+     {
+          healthSlider.value -= damageValue;
+          healthText.text = healthSlider.value.ToString();
      }
 }
